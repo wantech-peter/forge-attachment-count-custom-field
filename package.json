@@ -1,0 +1,7 @@
+{
+  "name": "attachment-count-custom-field",
+  "version": "1.0.0",
+  "dependencies": {
+    "@forge/api": "^2.0.0"
+  }
+}

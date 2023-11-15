@@ -1,0 +1,28 @@
+modules:
+  jira:customField:
+    - key: attachments
+      name: Attachments count
+      description: The number of attachments on the issue, calculated automatically
+      type: number
+      readOnly: true
+  webtrigger:
+    - key: web-trigger-attachments-setup
+      function: attachments-setup
+  trigger:
+    - key: product-trigger-on-issue-update
+      function: on-issue-update
+      events:
+        - avi:jira:updated:issue
+        - avi:jira:created:issue
+  function:
+    - key: attachments-setup
+      handler: attachments.setUpAttachmentCount
+    - key: on-issue-update
+      handler: attachments.onIssueUpdate
+app:
+  id: ari:cloud:ecosystem::app/6be06cad-bd8d-4303-8cb6-3ee7c210f558
+permissions:
+  scopes:
+    - read:jira-work
+    - write:jira-work
+    - read:jira-user
